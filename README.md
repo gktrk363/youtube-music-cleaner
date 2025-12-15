@@ -1,7 +1,7 @@
 \# 🎵 YouTube Music - Liked Songs Cleaner (Sniper Mode)
 
 
-
+A smart JavaScript tool to unlike all songs on YouTube Music automatically. No more manual clicking!
 YouTube Music'te "Tümünü Sil" butonu olmadığı için geliştirdiğimiz, "Beğenilen Şarkılar" (Liked Songs) listesini otomatik temizleyen JavaScript kodu.
 
 
@@ -55,8 +55,5 @@ Google'ın spam korumasına takılmadan, şarkıları tek tek ve kararlı bir ş
 
 
 \## 📜 Lisans
-
-
-
 MIT License. Özgürce kullanabilir ve geliştirebilirsiniz.
 
