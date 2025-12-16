@@ -3,7 +3,7 @@ console.log("%c 🧹 YTM Cleaner - Developed by Göktürk ", "background: #ff000
 // --- GLOBAL DEĞİŞKENLER ---
 let isRunning = false;
 let sniperLoop;
-let whitelistArray = []; // Korunacak kelimeler burada tutulacak
+let whitelistArray = []; 
 
 // --- BAŞLANGIÇTA WHITELIST'İ ÇEK ---
 chrome.storage.local.get(['whitelist'], function(result) {
@@ -13,9 +13,8 @@ chrome.storage.local.get(['whitelist'], function(result) {
     }
 });
 
-// --- İLETİŞİM (Popup'tan gelen mesajlar) ---
+// --- İLETİŞİM ---
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-    // 1. İstatistik İsteği
     if (request.action === "getStats") {
         let songCount = 0;
         let subtitles = document.querySelectorAll(".second-subtitle, .subtitle, yt-formatted-string.byline-item");
@@ -29,24 +28,26 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         sendResponse({count: songCount});
     }
     
-    // 2. Whitelist Güncelleme (Canlı)
     if (request.action === "updateWhitelist") {
         whitelistArray = request.data.toLowerCase().split(',').map(s => s.trim()).filter(s => s);
         console.log("🔄 Liste Güncellendi:", whitelistArray);
     }
 });
 
-// --- BUTON EKLEME (Sadece Beğenilenlerde) ---
+// --- BUTON EKLEME (AKILLI KONTROL) ---
 function butonEkle() {
-    // KONTROL: Eğer URL'de "liked_songs" yoksa (yani Beğenilenler sayfası değilse)
-    // ve buton varsa, butonu KALDIR.
-    if (!window.location.href.includes("liked_songs")) {
+    // URL KONTROLÜ (DÜZELTİLDİ): 
+    // Sadece "list=LM" (Beğenilenler Listesi) VEYA "library" (Kütüphane) sayfalarında çalışsın.
+    const currentUrl = window.location.href;
+    const isTargetPage = currentUrl.includes("list=LM") || currentUrl.includes("/library");
+
+    if (!isTargetPage) {
+        // Eğer hedef sayfada değilsek ve buton varsa kaldır
         const existingBtn = document.getElementById("ytm-cleaner-btn");
         if (existingBtn) existingBtn.remove();
-        return; // Fonksiyondan çık, buton ekleme
+        return;
     }
 
-    // Eğer buton zaten varsa tekrar ekleme
     if (document.getElementById("ytm-cleaner-btn")) return;
 
     const btn = document.createElement("button");
@@ -59,11 +60,9 @@ function butonEkle() {
         boxShadow: "0 4px 15px rgba(0,0,0,0.5)", fontFamily: "Roboto, Arial, sans-serif"
     });
 
-    // Düğmeye tıklandığında dili algıla ve metni ona göre değiştir
     btn.onclick = function() {
         if (!isRunning) {
             isRunning = true;
-            // Tarayıcı dili Türkçe değilse İngilizce metin göster
             const isTR = navigator.language.startsWith('tr');
             btn.innerText = isTR ? "🛑 Durdur" : "🛑 Stop";
             btn.style.backgroundColor = "#ff6f00";
@@ -79,7 +78,7 @@ function butonEkle() {
     document.body.appendChild(btn);
 }
 
-// --- 🔥 SNIPER MODU (AKILLI VERSİYON) ---
+// --- 🔥 SNIPER MODU ---
 async function sniperModuBaslat() {
     const btn = document.getElementById("ytm-cleaner-btn");
     const CONFIG = { clickDelay: 600, scrollDelay: 2000, scrollStep: 800, maxEmptyScrolls: 15 };
@@ -88,7 +87,6 @@ async function sniperModuBaslat() {
     async function loop() {
         if (!isRunning) return;
 
-        // "data-skipped" etiketi OLMAYAN butonları bul
         let allButtons = document.querySelectorAll(
             'button[aria-label="Beğenmekten vazgeç"]:not([data-skipped="true"]), ' +
             'button[aria-label="Undo like"]:not([data-skipped="true"]), ' +
@@ -97,7 +95,6 @@ async function sniperModuBaslat() {
 
         let targetBtn = null;
 
-        // Bulunan butonlar arasında döngüye girip WHITELIST kontrolü yap
         for (let b of allButtons) {
             let row = b.closest('ytmusic-responsive-list-item-renderer');
             if (row) {
@@ -141,5 +138,4 @@ async function sniperModuBaslat() {
     loop();
 }
 
-// URL değişimini daha sıkı takip et (Single Page Application olduğu için)
 setInterval(butonEkle, 1000);
