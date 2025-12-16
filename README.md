@@ -8,7 +8,7 @@
     </a>
     <img src="https://img.shields.io/badge/Platform-Chrome_Eklentisi-red?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Platform">
     <img src="https://img.shields.io/badge/Lisans-MIT-green?style=for-the-badge&logo=law&logoColor=white" alt="License">
-    <img src="https://img.shields.io/badge/Dil-JavaScript-yellow?style=for-the-badge&logo=javascript&logoColor=white" alt="Made With JS">
+   <img src="https://img.shields.io/badge/Made%20With-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="Made With JS">
   </p>
 
   <br>
@@ -72,3 +72,4 @@ Katkıda bulunmak veya yıldız vermek isterseniz repo sizindir! ⭐
 Geliştirme Hikayesi: <a href="https://dev.to/gktrk363">Dev.to Makalesi</a>
 
 </div>
+
