@@ -3,7 +3,7 @@
   <img src="https://capsule-render.vercel.app/api?type=waving&color=ff0000&height=250&section=header&text=YTM%20Cleaner&fontSize=80&animation=fadeIn&fontAlignY=35&desc=YouTube%20Music%20Toplu%20Silme%20Asistanı&descAlignY=55&descAlign=60" width="100%"/>
 
   <p>
-    <img src="https://img.shields.io/badge/Sürüm-v1.1-blue?style=for-the-badge&logo=rocket&logoColor=white" alt="Version">
+    <img src="https://img.shields.io/badge/Sürüm-v1.2-blue?style=for-the-badge&logo=rocket&logoColor=white" alt="Version">
     <img src="https://img.shields.io/badge/Platform-Chrome_Eklentisi-red?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Platform">
     <img src="https://img.shields.io/badge/Lisans-MIT-green?style=for-the-badge&logo=law&logoColor=white" alt="License">
     <img src="https://img.shields.io/badge/Made%20With-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="Made With JS">
@@ -77,6 +77,7 @@ Katkıda bulunmak veya yıldız vermek isterseniz repo sizindir! ⭐
 Geliştirme Hikayesi: <a href="https://dev.to/gktrk363">Dev.to Makalesi</a>
 
 </div>
+
 
 
 
