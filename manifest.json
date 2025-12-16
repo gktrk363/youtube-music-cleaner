@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "YTM Cleaner - Toplu Silici",
+  "version": "1.1",
+  "description": "YouTube Music beğenilen şarkıları otomatik temizler. (Whitelist özellikli)",
+  "author": "Göktürk",
+  "permissions": ["storage"],
+  "homepage_url": "https://github.com/gktrk363/youtube-music-cleaner",
+  "icons": {
+    "48": "icon.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icon.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://music.youtube.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            width: 300px;
+            padding: 15px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            background-color: #121212;
+            color: white;
+        }
+        h2 { margin: 10px 0 5px 0; font-size: 18px; color: #ff0000; }
+        
+        /* İstatistik Kutusu */
+        .stats-box {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #333;
+        }
+        .stat-item { font-size: 12px; color: #ddd; }
+        .stat-value { color: #ff0000; font-weight: bold; }
+
+        /* Whitelist Alanı */
+        .whitelist-box {
+            text-align: left;
+            margin-top: 15px;
+        }
+        label { font-size: 12px; color: #aaa; display: block; margin-bottom: 5px; }
+        textarea {
+            width: 95%;
+            height: 60px;
+            background-color: #222;
+            border: 1px solid #444;
+            color: white;
+            padding: 5px;
+            font-size: 11px;
+            border-radius: 5px;
+            resize: none;
+        }
+        #save-btn {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 11px;
+            margin-top: 5px;
+        }
+        #save-btn:hover { background-color: #444; }
+
+        .signature {
+            border-top: 1px solid #333;
+            padding-top: 10px;
+            font-size: 11px;
+            color: #888;
+            margin-top: 15px;
+        }
+        .author { color: white; font-weight: bold; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <img src="icon.png" width="48" height="48">
+    <h2>YTM Cleaner</h2>
+    
+    <div class="stats-box">
+        <div class="stat-item">Toplam: <span id="song-count" class="stat-value">...</span></div>
+        <div class="stat-item">Süre: <span id="est-time" class="stat-value">...</span></div>
+    </div>
+
+    <div class="whitelist-box">
+        <label>🚫 Beyaz Liste (Silinmeyecekler):</label>
+        <textarea id="whitelist-input" placeholder="Örn: Uzi, Batuflex, Tarkan (Virgülle ayır)"></textarea>
+        <button id="save-btn">💾 Listeyi Kaydet</button>
+        <span id="save-msg" style="font-size:10px; color:#4CAF50; display:none;">Kaydedildi! ✅</span>
+    </div>
+
+    <div class="signature">
+        Developed by <a href="https://github.com/gktrk363" target="_blank" class="author">Göktürk</a>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
