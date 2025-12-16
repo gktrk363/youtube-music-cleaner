@@ -1,0 +1,10 @@
+{
+  "app_name": { "message": "YTM Cleaner" },
+  "total_label": { "message": "Total:" },
+  "duration_label": { "message": "Time:" },
+  "whitelist_label": { "message": "🚫 Whitelist (Do not remove):" },
+  "whitelist_placeholder": { "message": "Ex: The Weeknd, Drake, Tarkan (Comma separated)" },
+  "save_btn": { "message": "💾 Save List" },
+  "saved_msg": { "message": "Saved! ✅" },
+  "minute_abbr": { "message": "min" }
+}

@@ -1,5 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
     
+    // --- YENİ EKLENEN KISIM: DİL ÇEVİRİSİ BAŞLANGIÇ ---
+    // HTML içindeki data-i18n etiketlerini bul ve çevir
+    document.querySelectorAll('[data-i18n]').forEach(elem => {
+        const msg = chrome.i18n.getMessage(elem.getAttribute('data-i18n'));
+        if (msg) elem.innerText = msg;
+    });
+    // Textarea'nın placeholder (silik yazı) kısmını çevir
+    const textAreaPlaceholder = chrome.i18n.getMessage("whitelist_placeholder");
+    if (textAreaPlaceholder) {
+        document.getElementById('whitelist-input').placeholder = textAreaPlaceholder;
+    }
+    // --- DİL ÇEVİRİSİ BİTİŞ ---
+
     // 1. İSTATİSTİKLERİ ÇEK
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         chrome.tabs.sendMessage(tabs[0].id, {action: "getStats"}, function(response) {
@@ -11,7 +24,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 countSpan.innerText = totalSongs;
                 let totalSeconds = totalSongs * 0.8; 
                 let minutes = Math.floor(totalSeconds / 60);
-                timeSpan.innerText = `~${minutes} dk`;
+                
+                // BURASI DEĞİŞTİ: 'dk' veya 'min' yazısını dil dosyasından alıyor
+                const minText = chrome.i18n.getMessage("minute_abbr") || "min";
+                timeSpan.innerText = `~${minutes} ${minText}`;
             } else {
                 countSpan.innerText = "?";
                 timeSpan.innerText = "?";
@@ -39,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
             saveMsg.style.display = "inline";
             setTimeout(() => { saveMsg.style.display = "none"; }, 2000);
             
-            // Eğer o an script çalışıyorsa, yeni listeyi ona da haber ver (Opsiyonel ama şık)
+            // Eğer o an script çalışıyorsa, yeni listeyi ona da haber ver
             chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
                 chrome.tabs.sendMessage(tabs[0].id, {action: "updateWhitelist", data: text});
             });

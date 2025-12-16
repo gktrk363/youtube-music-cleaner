@@ -1,0 +1,10 @@
+{
+  "app_name": { "message": "YTM Cleaner" },
+  "total_label": { "message": "Toplam:" },
+  "duration_label": { "message": "Süre:" },
+  "whitelist_label": { "message": "🚫 Beyaz Liste (Silinmeyecekler):" },
+  "whitelist_placeholder": { "message": "Örn: Uzi, Batuflex, Tarkan (Virgülle ayır)" },
+  "save_btn": { "message": "💾 Listeyi Kaydet" },
+  "saved_msg": { "message": "Kaydedildi! ✅" },
+  "minute_abbr": { "message": "dk" }
+}
