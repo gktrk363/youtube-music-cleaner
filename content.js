@@ -36,8 +36,17 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     }
 });
 
-// --- BUTON EKLEME ---
+// --- BUTON EKLEME (Sadece Beğenilenlerde) ---
 function butonEkle() {
+    // KONTROL: Eğer URL'de "liked_songs" yoksa (yani Beğenilenler sayfası değilse)
+    // ve buton varsa, butonu KALDIR.
+    if (!window.location.href.includes("liked_songs")) {
+        const existingBtn = document.getElementById("ytm-cleaner-btn");
+        if (existingBtn) existingBtn.remove();
+        return; // Fonksiyondan çık, buton ekleme
+    }
+
+    // Eğer buton zaten varsa tekrar ekleme
     if (document.getElementById("ytm-cleaner-btn")) return;
 
     const btn = document.createElement("button");
@@ -50,15 +59,19 @@ function butonEkle() {
         boxShadow: "0 4px 15px rgba(0,0,0,0.5)", fontFamily: "Roboto, Arial, sans-serif"
     });
 
+    // Düğmeye tıklandığında dili algıla ve metni ona göre değiştir
     btn.onclick = function() {
         if (!isRunning) {
             isRunning = true;
-            btn.innerText = "🛑 Durdur";
+            // Tarayıcı dili Türkçe değilse İngilizce metin göster
+            const isTR = navigator.language.startsWith('tr');
+            btn.innerText = isTR ? "🛑 Durdur" : "🛑 Stop";
             btn.style.backgroundColor = "#ff6f00";
             sniperModuBaslat();
         } else {
             isRunning = false;
-            btn.innerText = "▶️ Devam Et";
+            const isTR = navigator.language.startsWith('tr');
+            btn.innerText = isTR ? "▶️ Devam Et" : "▶️ Resume";
             btn.style.backgroundColor = "#ff0000";
             clearTimeout(sniperLoop);
         }
@@ -76,7 +89,6 @@ async function sniperModuBaslat() {
         if (!isRunning) return;
 
         // "data-skipped" etiketi OLMAYAN butonları bul
-        // (Daha önce "bu şarkı kalsın" dediklerimizi tekrar seçmemek için)
         let allButtons = document.querySelectorAll(
             'button[aria-label="Beğenmekten vazgeç"]:not([data-skipped="true"]), ' +
             'button[aria-label="Undo like"]:not([data-skipped="true"]), ' +
@@ -87,44 +99,36 @@ async function sniperModuBaslat() {
 
         // Bulunan butonlar arasında döngüye girip WHITELIST kontrolü yap
         for (let b of allButtons) {
-            // Butonun ait olduğu satırı (şarkıyı) bul
             let row = b.closest('ytmusic-responsive-list-item-renderer');
-            
             if (row) {
-                // Satırdaki tüm metni al (Şarkı adı, Sanatçı adı vs.)
                 let rowText = row.innerText.toLowerCase();
-                
-                // Yasaklı kelime var mı?
                 let isSafe = whitelistArray.some(keyword => rowText.includes(keyword));
 
                 if (isSafe) {
-                    // BU ŞARKIYI KORU!
-                    console.log("🛡️ KORUNDU: " + rowText.split('\n')[0]); // Konsola yaz
-                    b.setAttribute("data-skipped", "true"); // İşaretle ki bir daha bakmayalım
-                    row.style.opacity = "0.3"; // Görsel olarak soluklaştır (Kullanıcı anlasın)
-                    continue; // Sıradaki butona geç
+                    console.log("🛡️ KORUNDU: " + rowText.split('\n')[0]); 
+                    b.setAttribute("data-skipped", "true"); 
+                    row.style.opacity = "0.3"; 
+                    continue; 
                 }
             }
-            
-            // Eğer buraya geldiyse şarkı temizdir, silinebilir.
             targetBtn = b;
-            break; // İlk bulduğun silinecek şarkıyı al ve döngüden çık
+            break; 
         }
 
         if (targetBtn) {
-            // SİLME İŞLEMİ
             emptyScrollCount = 0;
             targetBtn.click();
             sniperLoop = setTimeout(loop, CONFIG.clickDelay);
         } else {
-            // Silinecek bir şey bulunamadıysa (Hepsi korumalı veya bitti)
             window.scrollBy(0, CONFIG.scrollStep);
             emptyScrollCount++;
 
             if (emptyScrollCount > CONFIG.maxEmptyScrolls) {
-                alert("Temizlik Tamamlandı! 🎉\n(Bazı şarkılar beyaz liste nedeniyle atlandı)");
+                const isTR = navigator.language.startsWith('tr');
+                alert(isTR ? "Temizlik Tamamlandı! 🎉\n(Bazı şarkılar beyaz liste nedeniyle atlandı)" : "Cleaning Finished! 🎉\n(Some songs skipped due to whitelist)");
+                
                 if(btn) {
-                    btn.innerText = "Bitti ✅";
+                    btn.innerText = isTR ? "Bitti ✅" : "Done ✅";
                     btn.style.backgroundColor = "#4CAF50";
                     btn.onclick = () => location.reload();
                 }
@@ -137,4 +141,5 @@ async function sniperModuBaslat() {
     loop();
 }
 
-setInterval(butonEkle, 2000);
+// URL değişimini daha sıkı takip et (Single Page Application olduğu için)
+setInterval(butonEkle, 1000);
