@@ -12,7 +12,7 @@
   <br>
   <div align="center">
 
-  <img src="https://github.com/user-attachments/assets/7a725dce-e205-4623-80c7-8c88904c5a41" width="400" style="border-radius: 15px; box-shadow: 0px 0px 20px rgba(0,0,0,0.5);">
+  <img src="https://github.com/user-attachments/assets/7a725dce-e205-4623-80c7-8c88904c5a41" width="375" style="border-radius: 15px; box-shadow: 0px 0px 20px rgba(0,0,0,0.5);">
 
 </div>
 
@@ -77,6 +77,7 @@ Katkıda bulunmak veya yıldız vermek isterseniz repo sizindir! ⭐
 Geliştirme Hikayesi: <a href="https://dev.to/gktrk363">Dev.to Makalesi</a>
 
 </div>
+
 
 
 
