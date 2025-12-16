@@ -18,7 +18,7 @@
 
   <p>
     YouTube Music'te eksik olan <b>"Toplu Beğeni Kaldırma"</b> özelliğini getiren akıllı ve güvenli Chrome eklentisi. <br>
-    Binlerce şarkıyı tek tıkla silin, sevdiklerinizi koruyun.
+    <i>The smart and safe Chrome extension that brings the missing <b>"Bulk Unlike"</b> feature to YouTube Music.</i>
   </p>
 
 </div>
@@ -27,37 +27,40 @@
 
 ## 🔥 Özellikler / Features
 
-| Özellik | Açıklama |
+| Özellik (TR) | Feature (EN) |
 | :--- | :--- |
-| **🚀 Toplu Silme** | Beğendiğiniz şarkıları veya kütüphanenizi saniyeler içinde temizler. |
-| **🛡️ Beyaz Liste (Whitelist)** | Sevdiğiniz sanatçıları (Örn: *Uzi, Batuflex*) listeye ekleyin, onları asla silmez. |
-| **🌍 Çoklu Dil Desteği** | Tarayıcı dilinize göre otomatik **Türkçe** veya **English** açılır. (v1.2) |
-| **🎯 Anti-Spam Modu** | YouTube'un "Çok hızlı işlem yapıyorsun" engeline takılmamak için akıllı bekleme süresi uygular. |
-| **📊 Canlı İstatistik** | Kaç şarkı silindiğini ve tahmini bitiş süresini anlık gösterir. |
-| **🔓 Açık Kaynak** | Kodlar %100 şeffaftır, verileriniz bilgisayarınızdan dışarı çıkmaz. |
+| **🚀 Toplu Silme** <br> Beğendiğiniz şarkıları saniyeler içinde temizler. | **🚀 Bulk Delete** <br> Clears your liked songs in seconds. |
+| **🛡️ Beyaz Liste (Whitelist)** <br> Sevdiğiniz sanatçıları (Örn: *Uzi, Batuflex*) korur. | **🛡️ Whitelist** <br> Protects your favorite artists from being removed. |
+| **🌍 Çoklu Dil Desteği** <br> Tarayıcı diline göre **Türkçe** veya **English** açılır. | **🌍 Multi-Language** <br> Automatically detects **English** or **Turkish**. |
+| **🎯 Anti-Spam Modu** <br> YouTube engeline takılmamak için akıllı bekleme yapar. | **🎯 Anti-Spam Mode** <br> Smart delays to avoid YouTube restrictions. |
+| **📊 Canlı İstatistik** <br> Kaç şarkı silindiğini ve süreyi gösterir. | **📊 Live Stats** <br> Shows deleted count and estimated time. |
 
 <br>
 
 ## 📥 Kurulum / Installation
 
-Bu proje henüz Chrome Web Mağazası'nda yayınlanmamıştır, ancak **Geliştirici Modu** ile hemen kullanabilirsiniz.
+Bu proje açık kaynaktır ve **Geliştirici Modu** ile tarayıcıya kurulur.
+*This project is open-source and installed via **Developer Mode**.*
 
 1.  Sağ taraftaki **[Releases](https://github.com/gktrk363/youtube-music-cleaner/releases)** kısmından son sürümü (**v1.2.zip**) indirin.
-2.  İndirdiğiniz ZIP dosyasını klasöre çıkartın.
+    * *(Download the latest **v1.2.zip** from Releases)*
+2.  ZIP dosyasını klasöre çıkartın.
+    * *(Extract the zip file)*
 3.  Tarayıcınızda `chrome://extensions` adresine gidin.
-4.  Sağ üst köşedeki **Geliştirici Modu (Developer Mode)** seçeneğini açın.
-5.  Sol üstteki **Paketlenmemiş öğe yükle (Load Unpacked)** butonuna tıklayın.
-6.  Klasöre çıkardığınız dosyayı seçin.
-7.  Tebrikler! 🎉 Eklenti yüklendi. YouTube Music'e girip kullanmaya başlayabilirsiniz.
+4.  Sağ üstteki **Geliştirici Modu (Developer Mode)** seçeneğini açın.
+5.  **Paketlenmemiş öğe yükle (Load Unpacked)** butonuna tıklayın ve klasörü seçin.
+6.  Tebrikler! 🎉 YouTube Music'e girip kullanmaya başlayabilirsiniz.
 
 <br>
 
 ## ⚠️ Uyarı / Disclaimer
-Bu eklenti **YouTube** veya **Google** ile resmi bir bağlantıya sahip değildir. Üçüncü taraf bir araçtır. Kullanım sorumluluğu kullanıcıya aittir.
+Bu eklenti **YouTube** veya **Google** ile resmi bir bağlantıya sahip değildir. Üçüncü taraf bir araçtır.
+*This extension is not officially affiliated with YouTube or Google. It is a third-party tool.*
 
 ---
 
 <div align="center">
   Developed with ❤️ by <a href="https://github.com/gktrk363">Göktürk</a>
-  Geliştirme Hikayesi: <a href="https://dev.to/gktrk363">Dev.to Makalesi</a>
+  <br>
+  📝 <a href="https://dev.to/gktrk363" target="_blank">Geliştirme Hikayesi: Dev.to Makalesi</a>
 </div>
