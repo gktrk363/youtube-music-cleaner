@@ -98,5 +98,6 @@ Hataları bildirmek veya özellik isteğinde bulunmak için \[Issues](https://gi
 
 
 
-\*\*Developed with ❤️ by \[Göktürk](https://github.com/gktrk363)\*\*
+**Developed with ❤️ by [Göktürk](https://github.com/gktrk363)**
+
 
