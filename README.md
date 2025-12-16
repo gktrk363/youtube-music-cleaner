@@ -62,6 +62,7 @@ Bu eklenti **YouTube** veya **Google** ile resmi bir bağlantıya sahip değildi
 <div align="center">
   Developed with ❤️ by <a href="https://github.com/gktrk363">Göktürk</a>
   <br>
-  📝 <a href="[https://dev.to/gktrk363](https://dev.to/gktrk363/how-i-built-a-script-to-bulk-unlike-all-songs-on-youtube-music-2025-anti-spam-edition-3l3)" target="_blank">Geliştirme Hikayesi: Dev.to Makalesi</a>
+  📝 Geliştirme Hikayesi: <a href="https://dev.to/gktrk363/how-i-built-a-script-to-bulk-unlike-all-songs-on-youtube-music-2025-anti-spam-edition-3l3">Dev.to Makalesi</a>
 
 </div>
+
