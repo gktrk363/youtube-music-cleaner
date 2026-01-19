@@ -49,7 +49,7 @@ Bu proje açık kaynaktır ve **Geliştirici Modu** ile tarayıcıya kurulur.
 3.  Tarayıcınızda `chrome://extensions` adresine gidin.
 4.  Sağ üstteki **Geliştirici Modu (Developer Mode)** seçeneğini açın.
 5.  **Paketlenmemiş öğe yükle (Load Unpacked)** butonuna tıklayın ve klasörü seçin.
-6.  Tebrikler! 🎉 YouTube Music'e girip kullanmaya başlayabilirsiniz. :D 
+6.  Tebrikler! 🎉 YouTube Music'e girip kullanmaya başlayabilirsiniz.
 
 <br>
 
@@ -65,6 +65,7 @@ Bu eklenti **YouTube** veya **Google** ile resmi bir bağlantıya sahip değildi
   📝 <a href="https://dev.to/gktrk363/how-i-built-a-script-to-bulk-unlike-all-songs-on-youtube-music-2025-anti-spam-edition-3l3" target="_blank">Geliştirme Hikayesi: Dev.to Makalesi</a>
 
 </div>
+
 
 
 
